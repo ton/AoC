@@ -1,4 +1,3 @@
-import Data.List
 import System.Environment
 
 pairs :: [a] -> [(a, a)]

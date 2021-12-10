@@ -1,4 +1,3 @@
-import Data.List
 import System.Environment
 
 toTuple :: [String] -> (String, String)
@@ -23,11 +22,9 @@ parse (c, n)
     | c == "down" = Down $ read n
 
 execute :: PositionOrAim -> Command -> PositionOrAim
-
 execute (Position (x, y)) (Forward n) = Position (x + n, y)
 execute (Position (x, y)) (Up n) = Position (x, y - n)
 execute (Position (x, y)) (Down n) = Position (x, y + n)
-
 execute (PositionAim (x, y, a)) (Forward n) = PositionAim (x + n, y + (a * n), a)
 execute (PositionAim (x, y, a)) (Up n) = PositionAim (x, y, a - n)
 execute (PositionAim (x, y, a)) (Down n) = PositionAim (x, y, a + n)
