@@ -30,9 +30,7 @@ minimumFuel (x:y:xs)
     | x < y = x
 
 main = do
-    input <- getLine
-
-    let h = makeHistogram input
+    h <- makeHistogram <$> getLine
 
     print . minimumFuel $ map (flip fuelCostA h) [0..length h]
     print . minimumFuel $ map (flip fuelCostB h) [0..length h]

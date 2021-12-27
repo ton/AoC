@@ -24,9 +24,7 @@ reproduceWith si [] = []
 reproduceWith si (numAdults:children) = add (spawnAfter si) numAdults . add (adultAfter si) numAdults $ children
 
 main = do
-    input <- getLine
-
-    let lanternFish = makeLanternFish input
+    lanternFish <- makeLanternFish <$> getLine
 
     let adultAfter = 8
     let spawnAfter = 6

@@ -39,8 +39,5 @@ numOverlaps :: Int -> Grid -> Int
 numOverlaps n = Map.foldr (\x acc -> if n <= x then acc + 1 else acc) 0
 
 main = do
-    input <- getContents
-
-    let grid = buildGrid . map parseLine . lines $ input
-
+    grid <- buildGrid . map parseLine . lines <$> getContents
     print $ numOverlaps 2 grid
